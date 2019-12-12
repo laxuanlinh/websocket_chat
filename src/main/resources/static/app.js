@@ -10,7 +10,7 @@ $(function(){
         		"Accept" : "application/json; charset=utf-8",
         		"Content-Type": "application/json; charset=utf-8"
     		},
-			url: 'http://localhost:8080/channel',	
+			url: '/channel',	
 			data: JSON.stringify(channel),
 			success: function(data){
 				console.log(data.id);
@@ -23,7 +23,7 @@ $(function(){
 
 	var stompClient = null;
 	
-	var socket = new SockJS('http://localhost:8080/chat');
+	var socket = new SockJS('/chat');
 	stompClient = Stomp.over(socket);
 	stompClient.connect({}, function(frame){
 		console.log('Connected: ' + frame);
