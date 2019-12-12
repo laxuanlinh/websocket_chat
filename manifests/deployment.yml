@@ -1,0 +1,16 @@
+apiVersion : apps/v1beta1
+kind: Deployment
+metadata:
+  name: laxuanlinhwebsocketchat 
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: laxuanlinhwebsocketchat 
+    spec:
+      containers:
+        - name: laxuanlinhwebsocketchat 
+          image: laxuanlinhregistry.azurecr.io/laxuanlinhwebsocketchat
+          ports:
+          - containerPort: 8080
