@@ -11,11 +11,11 @@ spec:
     spec:
       containers:
         - name: laxuanlinhwebsocketchat 
-          image: laxuanlinhregistry.azurecr.io/laxuanlinhwebsocketchat
+          image: laxuanlinhregistry.azurecr.io/laxuanlinhwebsocketchat:#{Build.BuildId}#
           ports:
           - containerPort: 8080
       imagePullSecrets:
-      - name: regcred
+      - name: azdev-sa-702dbb-token-lqwws
 ---
 apiVersion: v1
 kind: Service
