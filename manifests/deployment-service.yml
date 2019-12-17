@@ -12,10 +12,10 @@ spec:
       containers:
         - name: laxuanlinhwebsocketchat 
           image: laxuanlinhregistry.azurecr.io/laxuanlinhwebsocketchat
-          imagePullSecrets:
-          - name: regcred
           ports:
           - containerPort: 8080
+      imagePullSecrets:
+      - name: regcred
 ---
 apiVersion: v1
 kind: Service
