@@ -11,7 +11,7 @@ spec:
     spec:
       containers:
         - name: laxuanlinhwebsocketchat 
-          image: laxuanlinhregistry.azurecr.io/laxuanlinhwebsocketchat:11
+          image: laxuanlinhregistry.azurecr.io/laxuanlinhwebsocketchat:#{Build.BuildId}#
           ports:
           - containerPort: 8080
       imagePullSecrets:
