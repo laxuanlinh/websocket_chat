@@ -1,0 +1,30 @@
+apiVersion : apps/v1beta1
+kind: Deployment
+metadata:
+  name: laxuanlinhwebsocketchat 
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: laxuanlinhwebsocketchat 
+    spec:
+      containers:
+        - name: laxuanlinhwebsocketchat 
+          image: laxuanlinhregistry.azurecr.io/laxuanlinh/websocket_chat:#{Build.BuildId}#
+          ports:
+          - containerPort: 8080
+      imagePullSecrets:
+      - name: azdev-sa-702dbb-token-lqwws
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: laxuanlinhwebsocketchat:green
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 8080
+  selector:
+    app: laxuanlinhwebsocketchat
+---
