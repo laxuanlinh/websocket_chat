@@ -1,7 +1,7 @@
 apiVersion : apps/v1beta1
 kind: Deployment
 metadata:
-  name: laxuanlinhwebsocketchat-green
+  name: deployment-#{Build.BuildId}#
 spec:
   replicas: 1
   template:
