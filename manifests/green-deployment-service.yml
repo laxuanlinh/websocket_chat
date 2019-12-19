@@ -1,7 +1,7 @@
 apiVersion : apps/v1beta1
 kind: Deployment
 metadata:
-  name: deployment-green
+  name: deployment-#{Build.BuildId}#-green
 spec:
   replicas: 1
   template:
@@ -20,7 +20,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: laxuanlinhwebsocketchat-green
+  name: service-#{Build.BuildId}#-green
 spec:
   type: LoadBalancer
   ports:
