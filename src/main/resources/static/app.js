@@ -31,6 +31,17 @@ $(function(){
 			console.log("Received "+message)
 			$('#chat').append('<p>'+message.body+'</p>');
 		})
+
+		stompClient.subscribe('/topic/chat.login', function(message){
+		    var loginEvent = JSON.parse(message.body);
+            $('#activeUsers')
+                .append('<p id="user-'+loginEvent.username+'">'+loginEvent.username+'</p>');
+		})
+
+		stompClient.subscribe('/topic/chat.logout', function(message){
+		    var loginEvent = JSON.parse(message.body);
+            $("#user-"+loginEvent.username).remove();
+        })
 	},
 	function(error){
 		console.log("Disconnected");
