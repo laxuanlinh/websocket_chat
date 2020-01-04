@@ -1,0 +1,20 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  annotations:
+    traefik.ingress.kubernetes.io/service-weights: |
+      laxuanlinhwebsocketchat: 80%
+      service-#{Build.BuildId}#-green: 20%
+  name: websocket-ingress
+spec:
+  rules:
+  - http:
+      paths:
+      - backend:
+          serviceName: laxuanlinhwebsocketchat
+          servicePort: 80
+        path: /
+      - backend:
+          serviceName: service-#{Build.BuildId}#-green
+          servicePort: 80
+        path: /
