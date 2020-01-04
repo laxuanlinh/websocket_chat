@@ -1,7 +1,7 @@
 apiVersion : apps/v1beta1
 kind: Deployment
 metadata:
-  name: websocket-deployment-#{Build.BuildId}#-green
+  name: websocket-deployment-#{Build.BuildId}#
 spec:
   replicas: 1
   template:
