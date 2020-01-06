@@ -1,0 +1,12 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: websocket-ingress
+spec:
+  rules:
+  - http:
+      paths:
+      - backend:
+          serviceName: laxuanlinhwebsocketchat
+          servicePort: 80
+        path: /
