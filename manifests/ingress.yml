@@ -11,4 +11,4 @@ spec:
       - backend:
           serviceName: laxuanlinhwebsocketchat
           servicePort: 80
-        path: /
+        path: /websocket
