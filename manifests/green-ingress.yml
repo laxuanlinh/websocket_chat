@@ -2,6 +2,7 @@ apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
   annotations:
+	kubernetes.io/ingress.class: "nginx"
     traefik.ingress.kubernetes.io/service-weights: |
       laxuanlinhwebsocketchat: 80%
       service-#{Build.BuildId}#-green: 20%
