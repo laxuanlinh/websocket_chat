@@ -3,6 +3,7 @@ package com.linhlx.websocket;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.NoOpPasswordEncoder;
@@ -26,5 +27,17 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .withUser("laxuanlinh")
                 .password("$2y$12$Vd9tD.5/nqsBat0wf2gh4OIxQ4M2oye7XA.OXHmk0uLHVpTGfuP2i")
                 .roles("user");
+    }
+
+    @Override
+    protected void configure(HttpSecurity http) throws Exception {
+        http.csrf().disable()
+                .authorizeRequests()
+                .anyRequest().authenticated()
+                .and()
+                    .formLogin().loginPage("/login").permitAll()
+                .and()
+                    .logout().permitAll();
+
     }
 }
