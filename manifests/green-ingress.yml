@@ -1,6 +1,8 @@
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
+  labels:
+    app: websocket-ingress
   annotations:
     kubernetes.io/ingress.class: nginx
     nginx.ingress.kubernetes.io/canary: "true"
@@ -14,21 +16,5 @@ spec:
       paths:
       - backend:
           serviceName: service-#{Build.BuildId}#-green
-          servicePort: 8080
-        path: /websocket
----
-apiVersion: extensions/v1beta1
-kind: Ingress
-metadata:
-  annotations:
-    kubernetes.io/ingress.class: nginx
-    nginx.ingress.kubernetes.io/backend-protocol: HTTPS
-  name: websocket-ingress
-spec:
-  rules:
-  - http:
-      paths:
-      - backend:
-          serviceName: laxuanlinhwebsocketchat
           servicePort: 8080
         path: /websocket
