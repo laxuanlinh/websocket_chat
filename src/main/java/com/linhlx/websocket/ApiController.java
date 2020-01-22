@@ -8,7 +8,7 @@ public class ApiController {
 
     @GetMapping(value = "/api")
     public String version(){
-        return "version 7";
+        return "version 8";
     }
 
 }
